@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Verve Search Dev Interview Test</title>
+	<style type="text/css">
+	body {
+		background-color: #bbbbbb;
+	}
+	.nav {
+	}
+	.nav, .nav ol {
+		/* reset browser stying */
+		padding-left: 0;
+	}
+	ol.nav li ol {
+		visibility: collapse;
+	}
+	ol.nav li:hover > ol {
+		visibility: visible;
+	}
+	ol.nav > li {
+		display: inline-block;
+		vertical-align: top;
+	}
+	.nav li {
+		position: relative;		
+		padding: 3px;
+		cursor: default;
+		background-color: white;
+		list-style-type: none;		
+	}
+	.nav ol {
+		overflow: visible;	
+	}
+	
+	.nav .level1, .nav .level2 {
+		position: absolute;
+		white-space: nowrap; /* otherwise text will break to remain within width of parent container */
+	}
+	.nav .level1 {
+		left: 0;
+		top:100%;
+	}
+	.nav .level2 {
+		left:100%;
+		top:0;
+	}
+	</style>
+</head>
+<body>
+	<ol class="nav"><!--
+		--><li>Item 1
+			<ol class="level1">
+				<li>
+					Item A
+					<ol class="level2">
+						<li>Item i</li>
+						<li>Item ii</li>
+						<li>Item iii</li>
+					</ol>
+				</li>
+				<li>
+					Item B
+					<ol class="level2">
+						<li>Item i</li>
+						<li>Item ii</li>
+						<li>Item iii</li>
+					</ol>
+				</li>
+				<li>
+					Item C
+				</li>
+			</ol>
+		</li><!--
+		--><li>Item 2
+			<ol class="level1">
+				<li>Item D</li>
+				<li>Item E</li>
+				<li>Item F</li>
+			</ol>
+		</li><!--
+		--><li>Item 3
+			<ol class="level1">
+				<li>Item G</li>
+				<li>Item H</li>
+			</ol>
+		</li><!--
+		--><li>Item 4
+			<ol class="level1">
+				<li>Item I</li>
+				<li>Item J</li>
+			</ol>
+		</li><!--
+	--></ol>
+	<p>This is some content. Lorem Ipsum etc.</p>
+</body>
+</html>

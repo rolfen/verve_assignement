@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Verve Search Dev Interview Test</title>
+	<style type="text/css">
+	body {
+		background-color: #bbbbbb;
+	}
+	.nav {
+	}
+	.nav, .nav ol {
+		/* reset browser styling */
+		padding-left: 0;
+	}
+	ol.nav li ol {
+		visibility: collapse;
+	}
+	ol.nav li.active > ol {
+		visibility: visible;
+	}
+	ol.nav li.selected {
+		background-color: #885544;
+		color: white;
+	}
+	ol.nav li.selected li {
+		/* override color inheritance */
+		color: black;
+	}
+	ol.nav > li {
+		display: inline-block;
+		vertical-align: top;
+	}
+	.nav li {
+		position: relative;		
+		padding: 3px;
+		cursor: default;
+		background-color: white;
+		list-style-type: none;		
+	}
+	.nav ol {
+		overflow: visible;	
+	}
+	
+	.nav .level1, .nav .level2 {
+		position: absolute;
+		white-space: nowrap; /* otherwise text will break to remain within width of parent container */
+	}
+	.nav .level1 {
+		left: 0;
+		top:100%;
+	}
+	.nav .level2 {
+		left:100%;
+		top:0;
+	}
+	</style>
+
+	<script type="text/javascript">
+		document.addEventListener("DOMContentLoaded", function(eLoaded){
+			var list = document.querySelectorAll(".nav li");
+			var selectedItem;
+
+			for(var i = 0; i < list.length; i++) {
+				var match = list[i];
+
+				match.addEventListener("mouseenter", function(e){
+					e.target.classList.add("active");
+				});
+				match.addEventListener("mouseleave", function(e){
+					e.target.classList.remove("active");
+				});
+
+				// highlight clicked item
+				match.addEventListener("click", function(e){
+					if(e.target === e.currentTarget) { // ignore bubbled events
+						if(selectedItem && selectedItem !== e.target) {
+							// clear any other selected item
+							selectedItem.classList.remove("selected");
+						}
+						e.target.classList.add("selected");
+						selectedItem = e.target;
+					}
+				});
+			}
+		});
+	</script>
+</head>
+<body>
+	<ol class="nav"><!--
+		--><li>Item 1
+			<ol class="level1">
+				<li>
+					Item A
+					<ol class="level2">
+						<li>Item i</li>
+						<li>Item ii</li>
+						<li>Item iii</li>
+					</ol>
+				</li>
+				<li>
+					Item B
+					<ol class="level2">
+						<li>Item i</li>
+						<li>Item ii</li>
+						<li>Item iii</li>
+					</ol>
+				</li>
+				<li>
+					Item C
+				</li>
+			</ol>
+		</li><!--
+		--><li>Item 2
+			<ol class="level1">
+				<li>Item D</li>
+				<li>Item E</li>
+				<li>Item F</li>
+			</ol>
+		</li><!--
+		--><li>Item 3
+			<ol class="level1">
+				<li>Item G</li>
+				<li>Item H</li>
+			</ol>
+		</li><!--
+		--><li>Item 4
+			<ol class="level1">
+				<li>Item I</li>
+				<li>Item J</li>
+			</ol>
+		</li><!--
+	--></ol>
+	<p>This is some content. Lorem Ipsum etc.</p>
+</body>
+</html>
